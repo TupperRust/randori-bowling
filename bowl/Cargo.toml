@@ -1,7 +1,6 @@
 [package]
-name = "bowling"
+name = "bowl"
 version = "0.1.0"
 authors = ["Sereinity <sereinity@sereinity.fr>"]
 
 [dependencies]
-bowl = { path = "bowl"}
