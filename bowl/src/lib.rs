@@ -566,4 +566,20 @@ mod tests {
         }
         assert_eq!(game.score(), Pins::FinalPins(236));
     }
+
+    #[test]
+    fn play_ones() {
+        let mut game = Game::new();
+        'frames: loop {
+            let frame = game.next_frame();
+            loop {
+                match frame.set_draw(Draw::Open(1)) {
+                    NextAction::NextDraw => {},
+                    NextAction::NextFrame => { continue 'frames; },
+                    NextAction::Finish => { break 'frames; },
+                }
+            }
+        }
+        assert_eq!(game.score(), Pins::FinalPins(20));
+    }
 }
