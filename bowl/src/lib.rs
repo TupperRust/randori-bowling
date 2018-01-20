@@ -51,9 +51,9 @@ impl Frame for RegularFrame {
     fn set_draw(&mut self, draw: Draw) -> NextAction {
         let next = if self.draws.len() == 0 {
             match draw {
-                Draw::Open(_)|Draw::Fool => NextAction::NextDraw,
+                Draw::Open(_)|Draw::Fool|Draw::Split(_) => NextAction::NextDraw,
                 Draw::Strike => NextAction::NextFrame,
-                _ => panic!("Shouldn't append!"),
+                Draw::Spare => panic!("Shouldn't append!"),
             }
         } else {
             match draw {
