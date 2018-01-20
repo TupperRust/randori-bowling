@@ -102,7 +102,7 @@ impl Frame for RegularFrame {
         if let &Some(draw) = &self.draws.as_slice().get(0) {
             match draw {
                 &Draw::Open(x)|&Draw::Split(x) => {
-                    score += x;
+                    score = x;
                     in_progress = true;
                 },
                 &Draw::Fool => {
