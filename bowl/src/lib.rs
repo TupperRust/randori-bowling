@@ -333,15 +333,6 @@ impl Game {
 }
 
 // Tools
-impl From<Draw> for u32 {
-    fn from(draw: Draw) -> u32 {
-        match draw {
-            Draw::Strike|Draw::Spare => 10,
-            Draw::Open(x)|Draw::Split(x) => x,
-            Draw::Fool => 0,
-        }
-    }
-}
 impl Display for Pins {
     fn fmt(&self, formatter: &mut Formatter) -> std::result::Result<(), Error> {
         let score = match self {
