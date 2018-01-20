@@ -1,3 +1,5 @@
+use std::fmt::{Display, Error, Formatter};
+
 #[derive(PartialEq, Eq, Debug)]
 pub enum NextAction {
     NextDraw,
@@ -338,6 +340,14 @@ impl From<Draw> for u32 {
             Draw::Open(x)|Draw::Split(x) => x,
             Draw::Fool => 0,
         }
+    }
+}
+impl Display for Pins {
+    fn fmt(&self, formatter: &mut Formatter) -> std::result::Result<(), Error> {
+        let score = match self {
+            &Pins::InprogressPins(x)|&Pins::FinalPins(x) => x,
+        };
+        write!(formatter, "{}", score)
     }
 }
 

@@ -16,7 +16,7 @@ fn main() {
             }
         }
     }
-    println!("Your final score is: {:?}", game.score());
+    println!("Your final score is: {}", game.score());
 }
 
 
